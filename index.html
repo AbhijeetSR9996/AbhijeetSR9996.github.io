@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Personal Portfolio Website Design | Codehal</title>
+    <title>Responsive Personal Portfolio Website</title>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -27,7 +27,7 @@
     <section class="home" id="home">
       <div class="home-content">
         <h3>Hello, It's Me</h3>
-        <h1>Abhijeet S. R.</h1>
+        <h1>Abhijeet Singh Rathour</h1>
         <h3>And I'm a <span class="multiple-text"></span></h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
@@ -43,7 +43,7 @@
           <a href="https://wa.me/8359986955"><i class="bx bxl-whatsapp"></i></a>
         </div>
         <a
-          href="https://docs.google.com/document/d/1gF20jDd4_XiGpcryL9eZWcBOsKtm6oZe/edit?usp=sharing&ouid=117631407627927790569&rtpof=true&sd=true"
+          href="https://drive.google.com/file/d/128jw7hUZZk729M8BtbnU2PQ0-kjJVdTq/view?usp=sharing"
           download="proposed_file_name"
           class="btn"
           >Download CV</a
@@ -69,7 +69,9 @@
           molestias porro voluptas nihil maiores, exercitationem placeat odit
           inventore incidunt quidem.
         </p>
-        <a href="#" class="btn">Read More</a>
+        <a href="https://www.github.com/AbhijeetSR9996" class="btn"
+          >Read More</a
+        >
       </div>
     </section>
 
@@ -83,7 +85,11 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sed
             dolor quasi maiores dolorum eligendi error quam. Quasi, veniam cum.
           </p>
-          <a href="#" class="btn">Read More</a>
+          <a
+            href="https://en.wikipedia.org/wiki/Mobile_app_development"
+            class="btn"
+            >Read More</a
+          >
         </div>
 
         <div class="services-box">
@@ -94,7 +100,11 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sed
             dolor quasi maiores dolorum eligendi error quam. Quasi, veniam cum.
           </p>
-          <a href="#" class="btn">Read More</a>
+          <a
+            href="https://en.wikipedia.org/wiki/User_interface_design"
+            class="btn"
+            >Read More</a
+          >
         </div>
 
         <div class="services-box">
@@ -104,7 +114,9 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sed
             dolor quasi maiores dolorum eligendi error quam. Quasi, veniam cum.
           </p>
-          <a href="#" class="btn">Read More</a>
+          <a href="https://en.wikipedia.org/wiki/Web_development" class="btn"
+            >Read More</a
+          >
         </div>
       </div>
     </section>
@@ -121,18 +133,23 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
               laudantium.
             </p>
-            <a href="#"><i class="bx bx-link-external"></i></a>
+            <a href="https://github.com/AbhijeetSR9996/EducationAppinRN"
+              ><i class="bx bx-link-external"></i
+            ></a>
           </div>
         </div>
         <div class="portfolio-box">
-          <img src="./fox.jpg" alt="" />
+          <img src="./bwlogo.png" alt="" />
           <div class="portfolio-layer">
             <h4>UI Design</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
               laudantium.
             </p>
-            <a href="#"><i class="bx bx-link-external"></i></a>
+            <a
+              href="https://github.com/AbhijeetSR9996/CSSDesignz/blob/main/widowlogo.txt"
+              ><i class="bx bx-link-external"></i
+            ></a>
           </div>
         </div>
         <div class="portfolio-box">
@@ -143,7 +160,9 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
               laudantium.
             </p>
-            <a href="#"><i class="bx bx-link-external"></i></a>
+            <a href="https://github.com/AbhijeetSR9996/CrownClothing"
+              ><i class="bx bx-link-external"></i
+            ></a>
           </div>
         </div>
         <div class="portfolio-box">
@@ -154,7 +173,9 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
               laudantium.
             </p>
-            <a href="#"><i class="bx bx-link-external"></i></a>
+            <a href="https://github.com/AbhijeetSR9996/BloodLinksApp"
+              ><i class="bx bx-link-external"></i
+            ></a>
           </div>
         </div>
         <div class="portfolio-box">
@@ -165,7 +186,10 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
               laudantium.
             </p>
-            <a href="#"><i class="bx bx-link-external"></i></a>
+            <a
+              href="https://github.com/AbhijeetSR9996/CSSDesignz/blob/main/buttonhover.txt"
+              ><i class="bx bx-link-external"></i
+            ></a>
           </div>
         </div>
         <div class="portfolio-box">
@@ -176,21 +200,44 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
               laudantium.
             </p>
-            <a href="#"><i class="bx bx-link-external"></i></a>
+            <a href="https://github.com/AbhijeetSR9996/ReactCalculator"
+              ><i class="bx bx-link-external"></i
+            ></a>
           </div>
         </div>
       </div>
     </section>
 
+    let form = document.getElementsByTagName("form")[0];
+    form.addEventListener("submit",(e) => { e.preventDefault(); alert("Form
+    Submitted!"); });
+
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me!</span></h2>
-      <form action="#">
+      <form action="#" method="post" onsubmit="myFunction()">
         <div class="input-box">
-          <input type="text" placeholder="Full Name" />
-          <input type="email" placeholder="Email Address" />
+          <input
+            type="text"
+            placeholder="Full Name"
+            required
+            pattern=".{3,}"
+            title="Please enter atleast 3 characters"
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+            title="Please type your email"
+          />
         </div>
         <div class="input-box">
-          <input type="number" placeholder="Mobile Number" />
+          <input
+            type="number"
+            placeholder="Mobile Number"
+            required
+            min="10"
+            title="Please enter valid mobile number"
+          />
           <input type="text" placeholder="Email Subject" />
         </div>
         <textarea
@@ -199,8 +246,11 @@
           cols="30"
           rows="10"
           placeholder="Your Message"
+          required
+          minlength="30"
+          title="Please type your message"
         ></textarea>
-        <input type="submit" value="Send Message" class="btn" />
+        <input type="submit" class="btn" value="Send Message" />
       </form>
     </section>
 
@@ -216,5 +266,10 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="script.js"></script>
+    <script>
+      function myFunction() {
+        alert("The form was submitted successfully..!!");
+      }
+    </script>
   </body>
 </html>

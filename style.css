@@ -68,7 +68,7 @@ section {
   color: var(--main-color);
 }
 
-#active {
+.navbar .active {
   color: var(--main-color);
 }
 

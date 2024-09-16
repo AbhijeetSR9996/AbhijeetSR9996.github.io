@@ -372,8 +372,16 @@ span {
   width: 49%;
 }
 
+.contact form .input-box input:hover {
+  border: 0.1rem solid var(--main-color);
+}
+
 .contact form textarea {
   resize: none;
+}
+
+.contact form textarea:hover {
+  border: 0.1rem solid var(--main-color);
 }
 
 .contact form .btn {

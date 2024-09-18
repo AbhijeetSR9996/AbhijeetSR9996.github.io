@@ -4,6 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio Website</title>
+    <!-- firebase SDK-->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <!-- -->
+    <!-- Firebase Configuration -->
+    <script>
+      // Your Firebase configuration from Firebase Console
+      const firebaseConfig = {
+        apiKey: "AIzaSyBeYafpOcziV208eBI72hKEFnD4DcveccI",
+        authDomain: "myportfolio-11e95.firebaseapp.com",
+        projectId: "myportfolio-11e95",
+        storageBucket: "myportfolio-11e95.appspot.com",
+        messagingSenderId: "912648129207",
+        appId: "1:912648129207:web:af3dccb01ed541f4f79b32",
+        measurementId: "G-C1G87NHQGW",
+      };
+
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+    </script>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -16,11 +37,11 @@
       <a href="#" class="logo">🅰️</a>
       <i class="bx bx-menu" id="menu-icon"></i>
       <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" class="active">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#contact">CONTACT</a>
       </nav>
     </header>
 
@@ -190,9 +211,10 @@
 
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me!</span></h2>
-      <form action="thankyou.html" onsubmit="myFunction()">
+      <form id="myForm">
         <div class="input-box">
           <input
+            id="name"
             type="text"
             placeholder="Full Name"
             required
@@ -200,6 +222,7 @@
             title="Please enter atleast 3 characters"
           />
           <input
+            id="subject"
             type="text"
             placeholder="Subject"
             required
@@ -208,6 +231,7 @@
         </div>
         <div class="input-box">
           <input
+            id="mobile"
             type="tel"
             inputmode="numeric"
             placeholder="Mobile Number"
@@ -216,14 +240,14 @@
             title="Please enter valid mobile number"
           />
           <input
+            id="email"
             type="email"
             placeholder="Email (optional)"
             title="Please enter your email"
           />
         </div>
         <textarea
-          name=""
-          id=""
+          id="message"
           cols="30"
           rows="10"
           placeholder="Your Message"
@@ -247,10 +271,44 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="script.js"></script>
+
     <script>
-      function myFunction() {
-        alert("The form was submitted successfully..!!");
-      }
+      // JavaScript to handle form submission
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          // Get form values
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const mobile = document.getElementById("mobile").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+
+          // Create a unique reference for each submission
+          const newContactRef = database.ref("contacts").push();
+
+          // Send the data to Firebase Realtime Database
+          newContactRef
+            .set({
+              name: name,
+              email: email,
+              mobile: mobile,
+              subject: subject,
+              message: message,
+            })
+            .then(() => {
+              alert("Data submitted successfully!");
+              console.log(name, email, mobile, subject, message);
+
+              // Optionally, reset the form
+              document.getElementById("myForm").reset();
+            })
+            .catch((error) => {
+              console.error("Error saving data: ", error);
+            });
+        });
     </script>
   </body>
 </html>

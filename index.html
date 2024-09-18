@@ -293,48 +293,84 @@
       };
 
       // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      import {
-        getDatabase,
-        ref,
-        set,
-      } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+      // const app = initializeApp(firebaseConfig);
+      // const analytics = getAnalytics(app);
+      // import {
+      //   getDatabase,
+      //   ref,
+      //   set,
+      // } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
-      document.getElementById("myForm").addEventListener("submit", formSubmit);
+      // document.getElementById("myForm").addEventListener("submit", formSubmit);
 
-      function formSubmit(e) {
-        e.preventDefault();
-        let name = document.querySelector("#name").value;
-        let email = document.querySelector("#email").value;
-        let mobile = document.querySelector("#mobile").value;
-        let subject = document.querySelector("#subject").value;
-        let message = document.querySelector("#message").value;
+      // function formSubmit(e) {
+      //   e.preventDefault();
+      //   const name = document.querySelector("name").value;
+      //   const email = document.querySelector("email").value;
+      //   const mobile = document.querySelector("mobile").value;
+      //   const subject = document.querySelector("subject").value;
+      //   const message = document.querySelector("message").value;
 
-        sendMessage(name, email, mobile, subject, message);
-      }
+      //   sendMessage(name, email, mobile, subject, message);
+      // }
 
-      function sendMessage(name, email, mobile, subject, message) {
-        const database = getDatabase();
+      // function sendMessage(name, email, mobile, subject, message) {
+      //   const database = getDatabase();
 
-        set(ref(database, "users/" + Math.random() * 10000000), {
-          name: name,
-          email: email,
-          mobile: mobile,
-          subject: subject,
-          message: message,
-        })
-          .then(() => {
-            document.querySelector(".alert").style.display = "block";
-            setTimeout(function () {
-              document.querySelector(".alert").style.display = "none";
-            }, 7000);
-            document.getElementById("myForm").reset();
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      }
+      //   set(ref(database, "users/" + Math.random() * 10000000), {
+      //     name: name,
+      //     email: email,
+      //     mobile: mobile,
+      //     subject: subject,
+      //     message: message,
+      //   })
+      //     .then(() => {
+      //       document.querySelector(".alert").style.display = "block";
+      //       setTimeout(function () {
+      //         document.querySelector(".alert").style.display = "none";
+      //       }, 7000);
+      //       document.getElementById("myForm").reset();
+      //     })
+      //     .catch((error) => {
+      //       alert(error);
+      //     });
+      // }
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      // Handle form submission
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const mobile = document.querySelector("mobile").value;
+          const subject = document.querySelector("subject").value;
+          const message = document.querySelector("message").value;
+
+          const formData = {
+            name: name,
+            email: email,
+            mobile: mobile,
+            subject: subject,
+            message: message,
+          };
+
+          database
+            .ref("formSubmissions")
+            .push(formData)
+            .then(() => {
+              alert("Data saved successfully!");
+              document.getElementById("myForm").reset();
+            })
+            .catch((error) => {
+              console.error("Error saving data: ", error);
+            });
+        });
     </script>
   </body>
 </html>

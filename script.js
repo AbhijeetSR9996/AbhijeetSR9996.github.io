@@ -1,5 +1,33 @@
 let menuIcon = document.querySelector("#menu-icon");
 let navbar = document.querySelector(".navbar");
+// Get the form, modal, and close button elements
+const form = document.getElementById("myForm");
+const modal = document.getElementById("feedbackModal");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+// Handle form submission
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent form from submitting normally
+  modal.style.display = "block"; // Show the modal
+
+  // Clear the form fields
+  form.reset();
+});
+
+// Close the modal when the user clicks the close button
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+  window.scrollTo(0, 0);
+};
+
+// Close the modal when the user clicks anywhere outside of it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    window.scrollTo(0, 0);
+  }
+};
+
 
 menuIcon.onclick = () => {
   menuIcon.classList.toggle("bx-x");
